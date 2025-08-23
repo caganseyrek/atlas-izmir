@@ -3,7 +3,7 @@
 import React from "react";
 import { Marker as LeafletMarker, Tooltip, useMap } from "react-leaflet";
 
-import { Popup } from "@/components/popup";
+import { Popup } from "@/components/map/popup";
 
 import { getMarkerIcon } from "@/lib/get-marker-icon";
 
