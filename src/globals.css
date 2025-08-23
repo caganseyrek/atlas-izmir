@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --border: #d0d0d0;
+  --border-lighter: #e0e0e0;
+  --ring: #c0c0c0;
+
+  --gray-0: #fafafa;
+  --gray-1: #f5f5f5;
+  --gray-2: #f0f0f0;
+  --gray-3: #e6e6e6;
+  --gray-4: #dddddd;
+  --gray-5: #d0d0d0;
+  --gray-6: #bfbfbf;
+
+  --foreground: #161616;
+  --foreground-darker: #404040;
+
+  --primary: #4a90e2;
+  --primary-foreground: #0f2747;
+  --primary-hover: #3c7ac2;
+  --primary-ring: #6bb2ff;
+  --primary-border: #303030;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --border: #303030;
+  --border-lighter: #404040;
+  --ring: #595959;
+
+  --gray-0: #161616;
+  --gray-1: #1a1a1a;
+  --gray-2: #232323;
+  --gray-3: #2e2e2e;
+  --gray-4: #3a3a3a;
+  --gray-5: #404040;
+  --gray-6: #4d4d4d;
+
+  --foreground: #fafafa;
+  --foreground-darker: #bebebe;
+
+  --primary: #4a90e2;
+  --primary-foreground: #041122;
+  --primary-hover: #3c7ac2;
+  --primary-ring: #6bb2ff;
+  --primary-border: #303030;
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@theme {
+  --font-*: initial;
+  --font-sans:
+    "Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
+  --color-border: var(--border);
+  --color-border-lighter: var(--border-lighter);
+  --color-ring: var(--ring);
+
+  --color-gray-0: var(--gray-0);
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-gray-6: var(--gray-6);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-darker: var(--foreground-darker);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-border: var(--primary-border);
+  --color-primary-ring: var(--primary-ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-collapsible-up: slideUp 200ms ease-out;
+  --animate-collapsible-down: slideDown 200ms ease-out;
+}
+
+* {
+  scrollbar-gutter: stable;
+}
+
+* {
+  @apply border-border scroll-smooth font-sans outline-0;
+}
+body {
+  @apply bg-gray-0 text-foreground m-0 min-h-dvh min-w-[350px] overflow-x-auto p-0 text-sm;
+}
+
+html.dark .leaflet-layer,
+html.dark .leaflet-control-zoom-in,
+html.dark .leaflet-control-zoom-out,
+html.dark .leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--gray-1) !important;
+  color: var(--color-foreground-darker) !important;
+  padding: 16px !important;
+  border-radius: calc(var(--radius) - 4px) !important;
+}
+
+.leaflet-popup-content {
+  padding: 0px !important;
+  margin: 0px !important;
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 16px;
+}
+
+.leaflet-popup-tip {
+  background: var(--gray-1) !important;
+}
+
+.leaflet-popup-close-button {
+  right: 8px !important;
+  top: 8px !important;
+}
+
+.leaflet-popup-close-button span {
+  font-size: 20px;
+}
+
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+  margin: 16px 0px 0px 16px !important;
+  border: solid 1px var(--border) !important;
+  border-radius: calc(var(--radius) - 4px);
+  padding: 4px;
+  background-color: var(--gray-1) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 4px;
+}
+
+a.leaflet-control-zoom-in,
+a.leaflet-control-zoom-out {
+  @apply bg-gray-1! rounded-[3px]! border-b-0!;
+}
+
+a.leaflet-control-zoom-in:hover,
+a.leaflet-control-zoom-out:hover {
+  @apply bg-gray-3!;
+}
+
+a.leaflet-control-zoom-in span,
+a.leaflet-control-zoom-out span {
+  @apply font-medium!;
+}
