@@ -1,7 +1,7 @@
 {
   "name": "atlas-izmir",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Interactive map of significant and historical places in İzmir.",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -20,9 +20,10 @@
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "prepare": "husky",
-    "parse": "tsx ./src/lib/parser.ts"
+    "load-data": "tsx ./src/lib/data-loader.ts"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.0.8",
     "@paralleldrive/cuid2": "^2.2.2",
     "@prisma/client": "^6.14.0",
     "@radix-ui/react-avatar": "^1.1.10",
@@ -50,6 +51,7 @@
     "luxon": "^3.7.1",
     "next": "15.4.6",
     "next-themes": "^0.4.6",
+    "puppeteer": "^24.17.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.5.2",

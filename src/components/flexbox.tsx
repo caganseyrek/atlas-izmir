@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot";
 
 import { cn } from "@/lib/utils";
 
-import type { WrapperProps } from "@/globals";
+import type { WrapperProps } from "@/types";
 
 function FlexBox({
   children,

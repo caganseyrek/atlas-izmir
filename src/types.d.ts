@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 import type { LucideProps } from "lucide-react";
 
@@ -20,20 +20,7 @@ interface LinkProps {
   icon: IconType;
 }
 
-interface RawLocationData {
-  ILCE: string;
-  KAPINO: string | null;
-  ENLEM: number;
-  BOYLAM: number;
-  ACIKLAMA: string | null;
-  ILCEID: string;
-  MAHALLE: string | null;
-  MAHALLEID: string | null;
-  ADI: string;
-  YOL: string | null;
-}
-
-interface ParsedLocationData {
+interface LocationData {
   isim: string;
   aciklama: string | null;
   koordinatlar: {
@@ -46,4 +33,4 @@ interface ParsedLocationData {
   };
 }
 
-export type { IconType, WrapperProps, ProviderProps, LinkProps, RawLocationData, ParsedLocationData };
+export type { IconType, WrapperProps, ProviderProps, LinkProps, LocationData };

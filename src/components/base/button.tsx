@@ -3,10 +3,11 @@ import React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { FlexBox } from "@/components/flexbox";
+
 import { cn } from "@/lib/utils";
 
-import { FlexBox } from "../flexbox";
-import { WrapperProps } from "@/globals";
+import type { WrapperProps } from "@/types";
 
 type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>;
 
@@ -30,6 +31,8 @@ const buttonVariants = cva(
       variant: {
         default:
           "text-foreground-darker hover:bg-gray-2 hover:text-foreground data-[state=open]:bg-gray-2 focus-visible:border-border-lighter! focus-visible:ring-ring/40 transition-all focus-visible:ring-[3px]",
+        outlined:
+          "hover:bg-gray-2 hover:text-foreground data-[state=open]:bg-gray-2 focus-visible:border-border-lighter! focus-visible:ring-ring/40 bg-gray-1 text-foreground-darker/60 border transition-all focus-visible:ring-[3px]",
         unstyled: "",
       },
       size: {

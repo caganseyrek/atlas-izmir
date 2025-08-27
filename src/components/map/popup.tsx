@@ -7,9 +7,13 @@ import { Separator } from "@/components/base/separator";
 
 import { FlexBox } from "@/components/flexbox";
 
-import type { ParsedLocationData } from "@/globals";
+import type { LocationData } from "@/types";
 
-function Popup({ location }: { location: ParsedLocationData }) {
+interface PopupProps {
+  location: LocationData;
+}
+
+function Popup({ location }: PopupProps) {
   return (
     <LeafletPopup>
       <FlexBox asColumn className="items-start gap-0.5 pr-6 text-wrap">
@@ -29,9 +33,7 @@ function Popup({ location }: { location: ParsedLocationData }) {
       {location.aciklama && (
         <>
           <Separator />
-          <FlexBox className="max-h-[400px] w-full items-start overflow-y-scroll pr-2 text-wrap">
-            {location.aciklama}
-          </FlexBox>
+          <FlexBox className="w-full items-start overflow-y-scroll pr-2 text-wrap">{location.aciklama}</FlexBox>
         </>
       )}
     </LeafletPopup>

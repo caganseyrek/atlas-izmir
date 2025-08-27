@@ -11,13 +11,12 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof Root>) {
   return (
     <Root
       className={cn(
-        "peer h-4.5 w-4.5 shrink-0 rounded-sm border",
+        "peer h-4.5 w-4.5 shrink-0 rounded-sm data-[state=unchecked]:border data-[state=unchecked]:bg-transparent!",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "data-[state=checked]:bg-primary data-[state=checked]:border-primary-border! data-[state=checked]:text-primary-foreground",
         className,
       )}
       {...props}>
-      <Indicator className="flex items-center justify-center text-current">
+      <Indicator className="flex items-center justify-center text-white">
         <Check className="size-4 shrink-0" />
       </Indicator>
     </Root>

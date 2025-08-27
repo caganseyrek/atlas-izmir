@@ -13,7 +13,14 @@ function capitalize(input: string): string {
   if (words.length > 1) {
     return words.map(capitalize).join(" ");
   }
-  return input.charAt(0).toLocaleUpperCase("tr-TR") + input.slice(1).toLocaleLowerCase("tr-TR");
+
+  const match = input.match(/^([^a-zA-ZçğıöşüÇĞIİÖŞÜ]*)([a-zA-ZçğıöşüÇĞIİÖŞÜ])/);
+  if (match) {
+    const [, prefix, firstLetter] = match;
+    return prefix + firstLetter.toLocaleUpperCase("tr-TR") + input.slice(prefix.length + 1).toLocaleLowerCase("tr-TR");
+  }
+
+  return input.toLocaleLowerCase("tr-TR");
 }
 
 export { cn, capitalize };

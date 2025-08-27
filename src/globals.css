@@ -137,11 +137,12 @@ html.dark .leaflet-control-attribution {
   width: 300px !important;
   min-width: 300px !important;
   max-width: 300px !important;
+  max-height: calc((100dvh / 2) - 72px);
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
-  gap: 16px;
+  gap: 12px;
 }
 
 .leaflet-popup-tip {
@@ -172,7 +173,7 @@ html.dark .leaflet-control-attribution {
 
 a.leaflet-control-zoom-in,
 a.leaflet-control-zoom-out {
-  @apply bg-gray-1! rounded-[3px]! border-b-0!;
+  @apply bg-gray-1! flex! size-8! items-center! justify-center! rounded-[3px]! border-b-0!;
 }
 
 a.leaflet-control-zoom-in:hover,

@@ -1,10 +1,10 @@
 import React from "react";
 
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 
-import type { WrapperProps } from "@/globals";
 import "@/globals.css";
-import { Providers } from "@/providers";
+import type { WrapperProps } from "@/types";
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +21,9 @@ export default function RootLayout({ children }: Pick<WrapperProps, "children">)
         {/* <script crossOrigin="anonymous" src="//unpkg.com/react-scan/dist/auto.global.js" /> */}
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
